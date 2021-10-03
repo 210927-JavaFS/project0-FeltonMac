@@ -23,7 +23,7 @@ public class User {
 		this.id= id;
 		
 	}
-	// get setters
+	// getters
 	String getpassword(){
 		return this.password;
 	}
@@ -32,6 +32,17 @@ public class User {
 	}
 	int getid() {
 		return this.id;
+	}
+	
+	//setters
+	void setpassword( String passchange){
+		this.password = passchange;
+	}
+	void setusername(String userchange) {
+		this.username= userchange;
+	}
+	void setid(int changeid) {
+		this.id= changeid;
 	}
 	
 }
