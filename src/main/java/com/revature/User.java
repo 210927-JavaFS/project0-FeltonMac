@@ -10,7 +10,7 @@ package com.revature;
 public class User {
 	//create basic fields
 	String username, password;
-	int id;
+	private int id;
 	
 	// constructor basic 
 	User(){
