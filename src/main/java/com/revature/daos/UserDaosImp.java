@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.models.BankAccount;
+import com.revature.models.People;
 import com.revature.models.User;
 import com.revature.utilities.ConnectionUtil;
 
@@ -28,14 +30,19 @@ public class UserDaosImp implements UserDao {
 				List<User> list = new ArrayList<>();
 				
 				                                                                                    //ResultSets have a cursor (similar to Scanner or other I/O classes) that can be used 
-				                                                                                    //with a while loop to iterate through all the data. 
+				 // if i make account here it will make one for all
+				// database each time it is called in method
 				
-				while(result.next()) {
+				//with a while loop to iterate through all the data. 
+				
+				while(result.next()) { //(String username, String password, int id, String accesslevel, People person, BankAccount account)
 					User user = new User(
 							result.getString("user_name"), 
 							result.getString("user_password"),
-							result.getInt("user_id")
-							
+							result.getInt("user_id"),
+							result.getString("access_level"),
+							null,
+							null
 							//result.getObject(),
                             //Double d = (Double) resultSet.getObject("column");
 							//result.getInt("account_number")
@@ -44,14 +51,16 @@ public class UserDaosImp implements UserDao {
 							// get bank account both are objects 
 							);
 
-					//String Account = result.getString("account");// object if it is a reference
+					// user.BankAccount = result.getString("accountnumber");// object if it is a reference
 					
-				// add objects
-
-					//if(homeName!=null) {
-					//	Home home = homeDao.findByName(homeName);
-					//	avenger.setHome(home);
-					//}
+					// add first object
+					//people"
+					String ANfromresults=result.getString("account_number");
+					// add second object 
+					if (user.getAccount()!= null) {
+						BankAccount account = BankAccountDao.findAccount(ANfromresults);/// does this need to be the implimented dao
+						user.setAccount(account);
+					}
 					
 					list.add(user);
 					
@@ -71,12 +80,13 @@ public class UserDaosImp implements UserDao {
 		User result = new User();
 	return  result;
 	}
+	// DOES NOT ADD FIRST AND LAST
 	@Override
-	public boolean addUser(User newUser) {
+	public boolean addUser(User newUser) { 
 			try(Connection conn = ConnectionUtil.getConnection()){
 				
-				String sql = "INSERT INTO users(user_name ,user_password, access_level) \r\n"
-						+ "VALUES (?,?,?);";
+				String sql = "INSERT INTO users(user_name ,user_password, access_level, account_number, people_id) \r\n"
+						+ "VALUES (?,?,?,?);";
 				
 				int count = 0;
 				
@@ -85,6 +95,7 @@ public class UserDaosImp implements UserDao {
 				statement.setString(++count, newUser.getUsername());
 				statement.setString(++count, newUser.getPassword());
 				statement.setString(++count, newUser.getAccesslevel());
+				statement.setString(++count, newUser.getAccount().getAccountnumber());
 				statement.execute();
 				
 				return true;
@@ -100,7 +111,7 @@ public class UserDaosImp implements UserDao {
 		try(Connection conn = ConnectionUtil.getConnection()){
 			 
 
-		String sql = "UPDATE users AS u set u.password = ? where u.username = ?";
+		String sql = "UPDATE users AS u set u.password = ? WHERE u.username = ?";
 		
 		int count = 0;
 		

@@ -6,8 +6,9 @@ package com.revature.models;
  */
 public class User {
 	//create basic fields
-	String username, password;
-	private int id;
+	String username;
+	String password;
+	int id;
 	String accesslevel;
 	People person;
 	BankAccount account;

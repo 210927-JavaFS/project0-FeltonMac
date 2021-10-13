@@ -8,8 +8,10 @@ import com.revature.models.User;
 public interface BankAccountDao {
 //boolean createAccount();
 //boolean deleteAccount();
-	public List<User> findAll();
+	public List<BankAccount> findAll();
+	public BankAccount findAccount(String accountnumberstring);
+	public boolean addAcount();
 	public BankAccount getAccount();
-	public double getAccountBalance();
-
+	public double getAccountBalance(String accountnumberstring);
+	
 }

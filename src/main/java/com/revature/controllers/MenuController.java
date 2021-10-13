@@ -7,6 +7,9 @@ public class MenuController {
 	 static Scanner scan = new Scanner(System.in);
 	// static UserController  = new UserController();
 	// static BankAccountController = new BankAccountController();
+	public void login(){
+		
+	}
 	
 	
 	public void welcomeMenu() {
