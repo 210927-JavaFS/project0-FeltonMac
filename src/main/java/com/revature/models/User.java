@@ -8,9 +8,12 @@ public class User {
 	//create basic fields
 	String username, password;
 	private int id;
+	String accesslevel;
+	People person;
+	BankAccount account;
 	
 	// constructor basic 
-	User(){
+	public User(){
 		super();
 	}
 	public User(String username, String password, int id){
@@ -19,17 +22,44 @@ public class User {
 		this.id= id;
 		
 	}
+	
+	
+	
+	public User(String username, String password, int id, String accesslevel, People person, BankAccount account) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.id = id;
+		this.accesslevel = accesslevel;
+		this.person = person;
+		this.account = account;
+	}
 	// getters
-	String getpassword(){
+	public String getPassword(){
 		return this.password;
 	}
-	String getusername() {
+	public String getUsername() {
 		return this.username;
 	}
-	int getid() {
+	int getId() {
 		return this.id;
 	}
+	public String getAccesslevel() {
+		return accesslevel;
+	}
 	
+	public People getPerson() {
+		return person;
+	}
+	public BankAccount getAccount() {
+		return account;
+	}
+	public void setPerson(People person) {
+		this.person = person;
+	}
+	public void setAccount(BankAccount account) {
+		this.account = account;
+	}
 	//setters
 	void setpassword( String passchange){
 		this.password = passchange;
@@ -39,6 +69,9 @@ public class User {
 	}
 	void setid(int changeid) {
 		this.id= changeid;
+	}
+	public void setAccesslevel(String accesslevel) {
+		this.accesslevel = accesslevel;
 	}
 	@Override
 	public int hashCode() {

@@ -7,10 +7,9 @@ import com.revature.models.User;
 public interface UserDao {
 	
 	public List<User> findAll();
-	public User findUser(int id);
+	public User findUser(String u);
 	public boolean addUser(User newUser);
-	
-	//public void changePassword(String newPass);
-	//public void changePassword(String newUserName;)
+	public boolean changePassword(User u,String newPass);
+	//public void changeUsername(String newUserName;)
 
 }
