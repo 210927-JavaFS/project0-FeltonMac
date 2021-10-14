@@ -2,6 +2,8 @@ package com.revature.controllers;
 
 import java.util.Scanner;
 
+import com.revature.services.UserService;
+
 public class MenuController {
 
 	 static Scanner scan = new Scanner(System.in);
@@ -58,10 +60,12 @@ public class MenuController {
 		switch (response){
 		case "1":
 			//UserController();
+		
 			System.out.println();
 			System.out.println("*-------------------------*");
 			System.out.println("*-------------------------*");
 			System.out.println("*-------------------------*");
+			
 			
 			System.out.println("     Select  Options      :");
 			System.out.println("1) See All");
@@ -111,8 +115,36 @@ public class MenuController {
 		while( !response.equals("4") );
 	}
 	public void login() {
+		String loginUsername = inputString();
+;
+		String loginPassword = inputString();
+		
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void userController(){
+		
+		System.out.println();
+		System.out.println("*-------------------------*");
+		System.out.println("*-------------------------*");
+		System.out.println("*-------------------------*");
+		
+		
+		System.out.println("     Select  Options for user    :");
+		System.out.println("1) See All");
+		System.out.println("2) Add");
+		//see one
+		System.out.println("4) EXIT");
+		
+		System.out.println("*-------------------------*");
+		System.out.println("*-------------------------*");
+		System.out.println("*-------------------------*");
+		// scanner input============================================================================
+		String response = scan.nextLine();
+		public void getuserService(){
+			return UserService.startService();
+		}
 	}
 }
 

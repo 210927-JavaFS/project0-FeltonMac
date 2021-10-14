@@ -17,11 +17,10 @@ public class User {
 	public User(){
 		super();
 	}
-	public User(String username, String password, int id){
+	public User(String username, String password, String acceslevel){
 		this.password= password;
 		this.username= username;
-		this.id= id;
-		
+		this.accesslevel= acceslevel;
 	}
 	
 	
