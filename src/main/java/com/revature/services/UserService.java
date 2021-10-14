@@ -20,5 +20,14 @@ public class UserService {
 	public boolean addUser(User newUser) {
 	 return userDao.addUser(newUser);
 	}
+	public User login(String username, String password) {
+		User loguser = userDao.findUser(username);
+		if (loguser!=null) {
+			if(loguser.getPassword().equals(password)){
+				return loguser;
+			}
+		}
+		return null;
+	}
 
 }

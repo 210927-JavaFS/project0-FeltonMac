@@ -8,7 +8,7 @@ import com.revature.services.UserService;
 
 
 
-public class UserConrtoller {
+public class UserController {
 	
 	private  UserService userService = new UserService();
 	private  Scanner scan = new Scanner(System.in);
