@@ -7,8 +7,30 @@ public class MenuController {
 	 static Scanner scan = new Scanner(System.in);
 	// static UserController  = new UserController();
 	// static BankAccountController = new BankAccountController();
-	public void login(){
-		
+	public String inputString(){
+		System.out.println("       Please Enter        ");
+		System.out.println("*-------------------------*");
+		System.out.println("*-------------------------*");
+		System.out.println("*-------------------------*");
+		String input =scan.nextLine();
+		return input;
+	}
+	public int inputInt(){
+		System.out.println("       Please Enter        ");
+		System.out.println("*-------------------------*");
+		System.out.println("*-------------------------*");
+		System.out.println("*-------------------------*");
+		int input =scan.nextInt();
+		return input;
+	}
+	public Double inputDouble(){
+		System.out.println("       Please Enter        ");
+		System.out.println("*-------------------------*");
+		System.out.println("*-------------------------*");
+		System.out.println("*-------------------------*");
+		Double input =scan.nextDouble();
+		return input;
+	
 	}
 	
 	
@@ -31,8 +53,6 @@ public class MenuController {
 
 		response = scan.nextLine();
 		
-		
-		///////create a user login 
 		
 		//might have to put these in while loops
 		switch (response){
@@ -89,6 +109,10 @@ public class MenuController {
 			
 		}
 		while( !response.equals("4") );
+	}
+	public void login() {
+		// TODO Auto-generated method stub
+		
 	}
 }
 

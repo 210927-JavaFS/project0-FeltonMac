@@ -1,14 +1,16 @@
 package com.revature.services;
 
+import java.sql.Connection;
+
 import com.revature.daos.BankAccountDao;
 import com.revature.daos.BankAccountDaosImp;
 import com.revature.models.BankAccount;
 import com.revature.models.User;
+import com.revature.utilities.ConnectionUtil;
 
 public class BankAccountServices {
-	BankAccount account= new BankAccount();
-	User newUser = new User();
-	BankAccountDao dao= new BankAccountDaosImp();
-System.out.println(" new menu through service ");
-		
+	BankAccountDao accountdao = new BankAccountDaosImp();
+	BankAccount account = new BankAccount();
+	User user = new User();
+	
 }

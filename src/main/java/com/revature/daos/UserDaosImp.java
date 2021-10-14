@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
+import com.revature.daos.BankAccountDaosImp;
 import com.revature.models.BankAccount;
 import com.revature.models.People;
 import com.revature.models.User;
@@ -15,6 +15,8 @@ import com.revature.utilities.ConnectionUtil;
 
 
 public class UserDaosImp implements UserDao {
+	BankAccountDao accountdao = new BankAccountDaosImp();
+	//PeopleAccountDao peopledao= new PeopleAccountDaosImp();
 //--------------------------------------------------------------------
 // add other objects here with dao imp classes to added to objects in list 
 	@Override
@@ -50,15 +52,14 @@ public class UserDaosImp implements UserDao {
 							// get people  both are objects 
 							// get bank account both are objects 
 							);
-
-					// user.BankAccount = result.getString("accountnumber");// object if it is a reference
 					
 					// add first object
 					//people"
 					String ANfromresults=result.getString("account_number");
 					// add second object 
 					if (user.getAccount()!= null) {
-						BankAccount account = BankAccountDao.findAccount(ANfromresults);/// does this need to be the implimented dao
+				
+						BankAccount account = accountdao.findAccount(ANfromresults);/// does this need to be the implimented dao
 						user.setAccount(account);
 					}
 					

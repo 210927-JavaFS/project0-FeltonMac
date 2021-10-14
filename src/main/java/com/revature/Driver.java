@@ -8,7 +8,8 @@ public class Driver {
 		// TODO Auto-generated method stub
 		MenuController menuController = new MenuController();
 		
-			menuController.welcomeMenu();
+		menuController.login();
+		menuController.welcomeMenu();
 	}
 
 }
