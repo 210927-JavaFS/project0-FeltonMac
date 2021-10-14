@@ -7,7 +7,7 @@ import com.revature.daos.UserDaosImp;
 import com.revature.models.User;
 
 public class UserService {
-	private UserDao userDao = new UserDaosImp();//prvate or not
+	private UserDao userDao = new UserDaosImp();//prvate or not?
 
 	public List<User> getAllUsers(){
 		return userDao.findAll();

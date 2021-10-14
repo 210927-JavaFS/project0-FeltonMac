@@ -77,9 +77,46 @@ public class UserDaosImp implements UserDao {
 	}
 
 	@Override
-	public User findUser(String u) {
-		User result = new User();
-	return  result;
+	public User findUser(String u)  {
+			try(Connection conn = ConnectionUtil.getConnection()){ //try-with-resources 
+				String sql = "SELECT * FROM users WHERE user_name = ?;";
+				
+				PreparedStatement statement = conn.prepareStatement(sql);
+				
+				statement.setString(1, u);
+				
+				ResultSet result = statement.executeQuery();
+				
+				User user = new User();
+				
+				
+				if(result.next()) {
+					
+					user.setUsername(result.getString("user_name"));
+					user.setPassword(result.getString("user_password"));
+					//id
+					user.setAccesslevel(result.getString("access_level"));
+					user.setPerson(null);
+					//user.setAccount(result.getString(""));
+					user.setAccount(null);	
+				}
+				
+				// people account  skiped 
+				// still need people object
+				
+				String ANfromresults=result.getString("account_number");
+				if (user.getAccount()!= null) {
+					BankAccount account = accountdao.findAccount(ANfromresults);/// does this need to be the implimented dao
+					user.setAccount(account);
+				}
+				
+				System.out.println("User returning");
+				return user;
+				
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return null;
 	}
 	// DOES NOT ADD FIRST AND LAST
 	@Override

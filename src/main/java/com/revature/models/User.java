@@ -61,13 +61,13 @@ public class User {
 		this.account = account;
 	}
 	//setters
-	void setpassword( String passchange){
+	public void setPassword( String passchange){
 		this.password = passchange;
 	}
-	void setusername(String userchange) {
+	public void setUsername(String userchange) {
 		this.username= userchange;
 	}
-	void setid(int changeid) {
+	public void setId(int changeid) {
 		this.id= changeid;
 	}
 	public void setAccesslevel(String accesslevel) {
