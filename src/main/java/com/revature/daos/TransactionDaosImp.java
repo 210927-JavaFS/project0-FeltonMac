@@ -20,9 +20,11 @@ public class TransactionDaosImp implements TransactionDao {
 			statement.setString(++count, accountstring );
 			statement.execute();
 			System.out.println(" statement executed");
+			System.out.println(withdrawamount + ": withdrawn ");
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
+		System.out.println("failed at Dao Method withdraw");
 	}
 
 	}
@@ -39,6 +41,7 @@ public class TransactionDaosImp implements TransactionDao {
 			statement.setString(++count, accountstring );
 			statement.execute();
 			System.out.println(" statement executed");
+			System.out.println(depositeamount + ": deposite accepted ");
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}

@@ -10,9 +10,59 @@ import com.revature.services.BankAccountService;
 import com.revature.services.UserService;
 
 public class BankAccountController {
-	
+	BankAccount account;
 	private  BankAccountService accountService = new BankAccountService();
 	private  Scanner scan = new Scanner(System.in);
+	
+	public void accountMenu(User user) {
+		System.out.println("*-------------------------*");
+		System.out.println("*-------------------------*");
+		System.out.println("*-------------------------*");
+		System.out.println("       Account menu ");
+		System.out.println(" 1) find all Accounts ");
+		System.out.println(" 2) find one Account ");
+		System.out.println(" 3) add Account ");
+		System.out.println(" 4) Deposite ");
+		System.out.println(" 5) Witdraw ");
+		System.out.println(" 6) Transfer");
+		System.out.println(" 7) find all Accounts ");
+		System.out.println(" 0)---------exit ---------- ");
+		// switch statement
+		String response = scan.nextLine(); 
+		switch (response) {
+		case "1":
+			findAllAccounts();
+			break;
+		case "2":
+			if(user.getAccount()!=null){
+				displayOneaccount(user.getAccount().getAccountnumber());
+			System.out.println();}
+			break;
+		case "3":
+			break;
+		case "4":
+			break;
+		case "5":
+			System.out.println(" 5) Witdraw ");
+			double input =scan.nextDouble();
+			withdraw(user.getAccount().getAccountnumber(),input);
+			break;
+		case "6":
+			break;
+		case "7":
+			break;
+		
+		default : System.out.println("account menu end");
+				break;
+		
+		}
+
+
+
+
+		
+		
+	}
 	
 	public void findAllAccounts(){/////////////this is not here 
 		System.out.println("all accounts:");
@@ -30,7 +80,7 @@ public class BankAccountController {
 	}
 	
 	
-	public boolean addAccount()throws InputMismatchException, Exception {////////////// you have not made add account in  bank dao will return null
+	public boolean addAccount() {////////////// you have not made add account in  bank dao will return null
 		System.out.println("*---------------------*");
 		System.out.println("What is the account number?");
 		String accountnumber = scan.nextLine();
@@ -49,13 +99,12 @@ public class BankAccountController {
 
 		}
 	}	
-	public void withdraw(String accountstring,Double withdrawamount)throws InputMismatchException, Exception {
+	public void withdraw(String accountstring,Double withdrawamount) {
 		System.out.println("*---------------------*");
-		System.out.println("insert the account number");
-		String accountstring = scan.nextLine();
+		System.out.println("account number entered: " + accountstring);
 		System.out.println("*---------------------*");
 		System.out.println("insert withdraw amount");
-		double withdrawamount = scan.nextDouble();
+		
 		while ((withdrawamount>500)||(withdrawamount<0)) {
 			System.out.println("lower amount");
 			 withdrawamount = scan.nextDouble();
@@ -71,5 +120,7 @@ public class BankAccountController {
 	public void showbalance(String accountstring) {
 		accountService.showbalance(accountstring);
 	}
+
+	
 	
 }

@@ -9,7 +9,7 @@ public class Driver {
 		MenuController menuController = new MenuController();
 		
 		menuController.login();
-		menuController.welcomeMenu();
+		System.out.println(" ----------------that is all---------------------- ");
 	}
 
 }

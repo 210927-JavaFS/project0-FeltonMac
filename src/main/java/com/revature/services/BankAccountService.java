@@ -24,9 +24,10 @@ public class BankAccountService {
 		return accountdao.findAll();
 	}
 	
-	public BankAccount findAccount(String accountnumberstring){
+	public  BankAccount findAccount(String accountnumberstring){
 		return accountdao.findAccount(accountnumberstring);
 	}
+
 	
 	public boolean addAccount(BankAccount account) {
 	 return accountdao.addAcount();

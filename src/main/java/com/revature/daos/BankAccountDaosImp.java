@@ -49,13 +49,11 @@ public class BankAccountDaosImp implements BankAccountDao {
 			//with a while loop to iterate through all the data. 
 			
 			if(result.next()) {
-				
 				BAccount.setAccountnumber(result.getString("account_number"));
 				BAccount.setBalance(result.getDouble("balance"));
-
 			}
-			
 			return BAccount;
+			
 			}catch (SQLException e) {
 				e.printStackTrace();
 			}
