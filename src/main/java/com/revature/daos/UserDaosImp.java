@@ -16,9 +16,7 @@ import com.revature.utilities.ConnectionUtil;
 
 public class UserDaosImp implements UserDao {
 	BankAccountDao accountdao = new BankAccountDaosImp();
-	//PeopleAccountDao peopledao= new PeopleAccountDaosImp();
 //--------------------------------------------------------------------
-// add other objects here with dao imp classes to added to objects in list 
 	@Override
 	public List<User> findAll() {
 		
@@ -45,19 +43,15 @@ public class UserDaosImp implements UserDao {
 							result.getString("access_level"),
 							null,
 							null
-							//result.getObject(),
-                            //Double d = (Double) resultSet.getObject("column");
-							//result.getInt("account_number")
 							//result.getObject(people_id)
-							// get people  both are objects 
-							// get bank account both are objects 
+					 
 							);
 					
 					// add first object
 					//people"
 					String ANfromresults=result.getString("account_number");
 					// add second object 
-					if (user.getAccount()!= null) {
+					if (user.getAccount()== null) {
 				
 						BankAccount account = accountdao.findAccount(ANfromresults);/// does this need to be the implimented dao
 						user.setAccount(account);
@@ -66,7 +60,6 @@ public class UserDaosImp implements UserDao {
 					list.add(user);
 					
 				}
-				
 				return list;
 				
 			}catch (SQLException e) {
@@ -104,8 +97,8 @@ public class UserDaosImp implements UserDao {
 				// people account  skiped 
 				// still need people object
 				
-				String ANfromresults=result.getString("account_number");
-				if (user.getAccount()!= null) {
+				 String ANfromresults=result.getString("account_number");
+				if (user.getAccount()!=null) {
 					BankAccount account = accountdao.findAccount(ANfromresults);/// does this need to be the implimented dao
 					user.setAccount(account);
 				}

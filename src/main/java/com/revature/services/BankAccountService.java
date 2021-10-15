@@ -25,7 +25,9 @@ public class BankAccountService {
 	}
 	
 	public  BankAccount findAccount(String accountnumberstring){
-		return accountdao.findAccount(accountnumberstring);
+		BankAccount accountreturned = accountdao.findAccount(accountnumberstring);
+		accountreturned.toString();
+		return accountreturned;
 	}
 
 	

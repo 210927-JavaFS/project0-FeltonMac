@@ -13,7 +13,10 @@ public class BankAccountController {
 	BankAccount account;
 	private  BankAccountService accountService = new BankAccountService();
 	private  Scanner scan = new Scanner(System.in);
-	
+	double input;
+	String input2;
+
+	User currentinfo= new User();
 	public void accountMenu(User user) {
 		System.out.println("*-------------------------*");
 		System.out.println("*-------------------------*");
@@ -25,7 +28,7 @@ public class BankAccountController {
 		System.out.println(" 4) Deposite ");
 		System.out.println(" 5) Witdraw ");
 		System.out.println(" 6) Transfer");
-		System.out.println(" 7) find all Accounts ");
+		System.out.println(" 7) Showbalance ");
 		System.out.println(" 0)---------exit ---------- ");
 		// switch statement
 		String response = scan.nextLine(); 
@@ -34,31 +37,44 @@ public class BankAccountController {
 			findAllAccounts();
 			break;
 		case "2":
+			// null pointer... account never grabed account info from dao
+			System.out.println(" printing the users account "+ user.getAccount());
 			if(user.getAccount()!=null){
+				System.out .println(" printing the users account "+ user.getAccount());
 				displayOneaccount(user.getAccount().getAccountnumber());
 			System.out.println();}
 			break;
 		case "3":
 			break;
 		case "4":
+			System.out.println(" 4) deposit ");
+			System.out.println(" input deposit amount "); 
+			 input =scan.nextDouble();
+			 deposit(user.getAccount().getAccountnumber(),input);
 			break;
 		case "5":
 			System.out.println(" 5) Witdraw ");
-			double input =scan.nextDouble();
+			System.out.println(" input withdraw amount ");
+			 input =scan.nextDouble();
 			withdraw(user.getAccount().getAccountnumber(),input);
 			break;
 		case "6":
+			System.out.println(" 6) Transfer ");
+			System.out.println("user  account " + user.getAccount().getAccountnumber());
+			input2=scan.nextLine();
+			System.out.println(" which account do you wish to send to ");
+			input =scan.nextDouble();
+			System.out.println(" input transfer amount ");
+			transfer(user.getAccount().getAccountnumber(),input2,input);
 			break;
 		case "7":
+			showBalance(user.getAccount().getAccountnumber());
 			break;
 		
 		default : System.out.println("account menu end");
 				break;
 		
 		}
-
-
-
 
 		
 		
@@ -73,7 +89,7 @@ public class BankAccountController {
 	}
 
 	public BankAccount displayOneaccount(String accountnumberstring) {
-		System.out.println(" Account - number "+accountnumberstring+":");
+		System.out.println(" Account  number "+accountnumberstring+":");
 		BankAccount account = accountService.findAccount(accountnumberstring);
 		System.out.println(account);
 		return account;
@@ -96,10 +112,9 @@ public class BankAccountController {
 		}else {
 			System.out.println("Something went wrong. Please try again.");
 			return false;
-
 		}
 	}	
-	public void withdraw(String accountstring,Double withdrawamount) {
+	public void withdraw(String accountstring,Double withdrawamount)throws java.lang.NullPointerException,InputMismatchException {
 		System.out.println("*---------------------*");
 		System.out.println("account number entered: " + accountstring);
 		System.out.println("*---------------------*");
@@ -111,13 +126,26 @@ public class BankAccountController {
 		}
 		 accountService.withdraw(accountstring, withdrawamount);
 	}
-	public void deposit(String accountstring,Double depositeamount) {
+	public void deposit(String accountstring,Double depositeamount)throws java.lang.NullPointerException,InputMismatchException{
+		System.out.println("*---------------------*");
+		System.out.println("account number entered: " + depositeamount);
+		System.out.println("*---------------------*");
+		System.out.println("insert withdraw amount");
+		while ((depositeamount>500)||(depositeamount<0)) {
+			System.out.println("lower amount");
+			depositeamount = scan.nextDouble();
+		}
 		accountService.deposit(accountstring, depositeamount);
 	}
-	public void transfer(String addaccountstring,String subaccountstring,Double transferamount) {
+	public void transfer(String addaccountstring,String subaccountstring,Double transferamount)throws java.lang.NullPointerException,InputMismatchException {
+		System.out.println("*---------------------*");
+		System.out.println("account number entered: " + subaccountstring);// you need to be able to choose or flip these
+		System.out.println("account number entered: " + transferamount);
+		System.out.println("*---------------------*");
+		System.out.println("insert transfer amount amount");
 		accountService.transfer(addaccountstring, subaccountstring, transferamount);
 	}
-	public void showbalance(String accountstring) {
+	public void showBalance(String accountstring)throws java.lang.NullPointerException,InputMismatchException {
 		accountService.showbalance(accountstring);
 	}
 

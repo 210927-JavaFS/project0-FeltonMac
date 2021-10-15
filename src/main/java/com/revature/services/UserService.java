@@ -10,11 +10,17 @@ public class UserService {
 	private UserDao userDao = new UserDaosImp();//prvate or not?
 
 	public List<User> getAllUsers(){
+		List<User> info=userDao.findAll();
+		for (User user : info) {
+		user.toString();
+		}
 		return userDao.findAll();
 	}
 	
 	public User findUser(String u){
-		return userDao.findUser(u);
+		User info=userDao.findUser(u);
+		info.toString();
+		return info;
 	}
 	
 	public boolean addUser(User newUser) {
@@ -28,6 +34,11 @@ public class UserService {
 			}
 		}
 		return null;
+	}
+
+	public void changePassword(User u , String passwordchange) {
+		userDao.changePassword(u, passwordchange);
+		System.out.println(" new password set to "+passwordchange);
 	}
 
 }
