@@ -19,6 +19,10 @@ public class UserService {
 	
 	public User findUser(String u){
 		User info=userDao.findUser(u);
+		if(info==null) {
+			System.out.println("user not found");
+			return info;
+		}
 		info.toString();
 		return info;
 	}
@@ -26,14 +30,18 @@ public class UserService {
 	public boolean addUser(User newUser) {
 	 return userDao.addUser(newUser);
 	}
+	
+	
 	public User login(String username, String password) {
 		User loguser = userDao.findUser(username);
-		if (loguser!=null) {
+		System.out.println(loguser.toString());
+		if (loguser.getUsername()!=null || (loguser.getPassword()!=null)) {
 			if(loguser.getPassword().equals(password)){
 				return loguser;
 			}
 		}
-		return null;
+		return loguser=null;
+
 	}
 
 	public void changePassword(User u , String passwordchange) {

@@ -61,7 +61,7 @@ public class UserController {
 			System.out.println("not proper Access level");
 			break;
 		case "0":
-			continue;
+			break;
 		}
 	}while(response!="0");
 	}
@@ -100,6 +100,18 @@ public class UserController {
 			System.out.println("Something went wrong. Please try again.");
 		}
 	}
-	
+	public User newUserMenu() {
+		User newUser= new User();
+		System.out.println("*---------------------*");
+		System.out.println("What is the user name?");
+		String username = scan.nextLine();
+		System.out.println("*---------------------*");
+		System.out.println(" what is the password ?");
+		String password = scan.nextLine();
+		newUser.setUsername(username);
+		newUser.setPassword(password);
+		newUser.setAccesslevel("one");
+		return newUser;
+	}
 
 }

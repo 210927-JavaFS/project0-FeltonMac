@@ -11,7 +11,7 @@ public class TransactionDaosImp implements TransactionDao {
 	@Override
 	public void withdraw(String accountstring, Double withdrawamount) {
 		try(Connection conn = ConnectionUtil.getConnection()){
-			String sql = "UPDATE accounts_table SET balance = balance - ? \n"
+			String sql = "UPDATE accounts_table SET balance = balance - ? "
 					+"Where accountnumber = ?";
 			
 		PreparedStatement statement = conn.prepareStatement(sql);
@@ -61,7 +61,7 @@ public class TransactionDaosImp implements TransactionDao {
 			int count=0;	
 				statement.setDouble(++count, transferamount);
 				statement.setString(++count, addaccountstring );
-				statement.executeUpdate();
+				statement.execute();
 				
 				
 			PreparedStatement statement2 = conn.prepareStatement(sql2);
@@ -83,7 +83,7 @@ public class TransactionDaosImp implements TransactionDao {
 	public void showbalance(String accountstring) {
 		try(Connection conn = ConnectionUtil.getConnection()){
 			String sql = "SELECT balance FROM accounts_table \n"
-			+ "WHERE accountnumber = ?";
+			+ "WHERE account_number = ?";
 			
 			int count=0;
 			

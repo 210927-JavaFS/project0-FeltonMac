@@ -70,7 +70,7 @@ public class UserDaosImp implements UserDao {
 	}
 
 	@Override
-	public User findUser(String u)  {
+	public User findUser(String u) {
 			try(Connection conn = ConnectionUtil.getConnection()){ //try-with-resources 
 				String sql = "SELECT * FROM users WHERE user_name = ?;";
 				
@@ -92,18 +92,20 @@ public class UserDaosImp implements UserDao {
 					user.setPerson(null);
 					//user.setAccount(result.getString(""));
 					user.setAccount(null);	
+
+					// people account skiped
+					// still need people object
+					// if (rs.next())
+					String ANfromresults = result.getString("account_number");
+					if (user.getAccount() == null) {
+						BankAccount account = accountdao.findAccount(ANfromresults);/// does this need to be the
+																					/// implimented dao
+						user.setAccount(account);
+					}
 				}
-				
-				// people account  skiped 
-				// still need people object
-				
-				 String ANfromresults=result.getString("account_number");
-				if (user.getAccount()!=null) {
-					BankAccount account = accountdao.findAccount(ANfromresults);/// does this need to be the implimented dao
-					user.setAccount(account);
-				}
-				
+			
 				System.out.println("User returning");
+				System.out.println(user.toString());
 				return user;
 				
 			}catch (SQLException e) {
@@ -140,15 +142,13 @@ public class UserDaosImp implements UserDao {
 	public boolean changePassword(User u ,String newPass) {
 		// TODO Auto-generated method stub		
 		try(Connection conn = ConnectionUtil.getConnection()){
-			 
-
+			
 		String sql = "UPDATE users AS u set u.password = ? WHERE u.username = ?";
 		
 		int count = 0;
 		
 		PreparedStatement statement = conn.prepareStatement(sql);
 		
-	
 		statement.setString(++count, newPass);
 		statement.setString(++count, u.getUsername());
 		

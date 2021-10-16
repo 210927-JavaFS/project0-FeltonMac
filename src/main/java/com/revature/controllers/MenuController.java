@@ -13,7 +13,7 @@ public class MenuController {
 	static BankAccountController bankController = new BankAccountController();
 	static UserService userService = new UserService();
 
-	public void login() {
+	public void login(){
 
 		System.out.println("      Enter Username ");
 		System.out.println("*-------------------------*");
@@ -30,12 +30,23 @@ public class MenuController {
 		User user = userService.login(loginUsername, loginPassword);
 		if (user != null) {
 			welcomeMenu(user);
-		} else {
-			System.out.println("login failed");
+		}
+			System.out.println("       login failed");
+			System.out.println("*-------------------------*");
+			System.out.println("*-------------------------*");
+			System.out.println("*-------------------------*");
+			System.out.println("       create user?");
+			String input = scan.nextLine();
+			
+			switch(input.toLowerCase()) {
+			case "y":
+			welcomeMenu(userController.newUserMenu());
+			break;
+			case "n":
+			break;
+			}
 			login();
 		}
-
-	}
 
 	public void welcomeMenu(User user) {
 		String response;
@@ -61,66 +72,15 @@ public class MenuController {
 			case "1":
 				userController.userMenu(user);
 				break;
-			/*
-			 * System.out.println("*-------------------------*");
-			 * System.out.println("*-------------------------*");
-			 * System.out.println("*-------------------------*");
-			 * System.out.println(":     Select  Options      :");
-			 * System.out.println("1) print all users         ");
-			 * System.out.println("2) select user info        "); System.out.println("\n");
-			 * System.out.println("0) EXIT");
-			 * System.out.println("*-------------------------*");
-			 * System.out.println("*-------------------------*");
-			 * System.out.println("*-------------------------*");
-			 * 
-			 * response = scan.nextLine(); break;
-			 */
+
 			case "2":
 				bankController.accountMenu(user);
 				break;
-			/*
-			 * System.out.println(); System.out.println("*-------------------------*");
-			 * System.out.println("*-------------------------*");
-			 * System.out.println("*-------------------------*");
-			 * 
-			 * System.out.println("     Select  Options      :");
-			 * System.out.println("1) See account"); System.out.println("2) Deposit");
-			 * System.out.println("3) Withdraw");
-			 * 
-			 * //see one System.out.println("4) EXIT");
-			 * 
-			 * System.out.println("*-------------------------*");
-			 * System.out.println("*-------------------------*");
-			 * System.out.println("*-------------------------*"); //scanner
-			 * input=====================================
-			 * 
-			 * response = scan.nextLine(); break;
-			 */
 			}
-			System.out.println("Reselect or und with 0");
+			System.out.println("Reselect or end with \"0\"");
+			response=scan.nextLine();
 		} while (!response.equals("0"));
 
 	}
 
-	/*
-	 * public String inputString(){
-	 * System.out.println("       Please Enter        ");
-	 * System.out.println("*-------------------------*");
-	 * System.out.println("*-------------------------*");
-	 * System.out.println("*-------------------------*"); String input
-	 * =scan.nextLine(); return input; }
-	 * 
-	 * public int inputInt(){ System.out.println("       Please Enter        ");
-	 * System.out.println("*-------------------------*");
-	 * System.out.println("*-------------------------*");
-	 * System.out.println("*-------------------------*"); int input =scan.nextInt();
-	 * return input; } public Double inputDouble(){
-	 * System.out.println("       Please Enter        ");
-	 * System.out.println("*-------------------------*");
-	 * System.out.println("*-------------------------*");
-	 * System.out.println("*-------------------------*"); Double input
-	 * =scan.nextDouble(); return input;
-	 * 
-	 * }
-	 */
 }

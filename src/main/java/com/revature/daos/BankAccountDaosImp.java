@@ -35,7 +35,7 @@ public class BankAccountDaosImp implements BankAccountDao {
 	public BankAccount findAccount(String accountnumberstring) {
 		
 		try(Connection conn = ConnectionUtil.getConnection()){ //try-with-resources 
-			String sql = "SELECT * FROM homes WHERE home_name = ?;";
+			String sql = "SELECT * FROM accounts_table WHERE account_number = ?;";
 			
 			PreparedStatement statement = conn.prepareStatement(sql);
 			
