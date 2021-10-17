@@ -27,3 +27,5 @@
 05:00:32.845 [] [main] INFO  c.r.controllers.MenuController - seconduser this user has logged in
 05:06:03.138 [] [main] INFO  c.r.controllers.MenuController - login attempt
 05:06:22.263 [] [main] INFO  c.r.controllers.MenuController - seconduser this user has logged in
+05:08:41.338 [] [main] INFO  c.r.controllers.MenuController - login attempt
+05:08:57.347 [] [main] INFO  c.r.controllers.MenuController - seconduser this user has logged in
