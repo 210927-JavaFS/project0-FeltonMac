@@ -18,7 +18,7 @@ public class UserController {
 	String response;
 	public void userMenu(User user){
 		// menu selection
-		do {
+		
 		System.out.println("       User menu ");
 		System.out.println("*-------------------------*");
 		System.out.println("*-------------------------*");
@@ -31,8 +31,9 @@ public class UserController {
 		switch(response) {
 		case "1":
 			System.out.println("checking user info ");
-			displayOneUser( user.getUsername());
-			System.out.println("user info complete ");
+			user.toString();
+			displayOneUser(user.getUsername());
+			System.out.println("user check complete ");
 			break;
 		case "2":
 			System.out.println("changing password");
@@ -47,36 +48,36 @@ public class UserController {
 				System.out.println("Enter user info");
 				User newuser= new User();
 				System.out.println("Enter User Name");
-				newuser.setUsername( scan.nextLine());
+				newuser.setUsername(scan.nextLine());
 				System.out.println("Enter password");
-				newuser.setPassword( scan.nextLine());
+				newuser.setPassword(scan.nextLine());
 				System.out.println("Enter access level");
 				newuser.setAccesslevel(scan.nextLine());
 				System.out.println("Enter account number");
-				BankAccount BA=new BankAccount(scan.nextLine(), 0.00);
+				BankAccount BA = new BankAccount(scan.nextLine(), 0.00);
 				newuser.setAccount(BA);
-				userService.addUser(newuser);
-				System.out.println("Info sent");		
-			}
+				if (userService.addUser(newuser)) {
+					System.out.println("Info sent");
+					break;
+				}else {
+				System.out.println("failed attempt");
+				break;
+				}
+			}else {
 			System.out.println("not proper Access level");
 			break;
-		case "0":
-			break;
+			}
 		}
-	}while(response!="0");
 	}
 	
 	
 	public void getAllUsers(){
-		System.out.println("These are your homes:");
-		List<User> list = userService.getAllUsers();
-		for(User user:list) {
-			System.out.println(user);
-		}
+		System.out.println("-------all users--------");
+		userService.getAllUsers();
 	}
 
 	public void displayOneUser(String username) {
-		System.out.println(" User "+username+":");
+		System.out.println(" searching for user "+username+":");
 		User user = userService.findUser(username);
 		System.out.println(user.toString());
 	}

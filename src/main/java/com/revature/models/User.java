@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import java.util.Objects;
+
 /**
  * @author Felton McCarty
  *
@@ -75,12 +77,7 @@ public class User {
 	}
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((username == null) ? 0 : username.hashCode());
-		return result;
+		return Objects.hash(accesslevel, account, id, password, person, username);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -91,24 +88,18 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (id != other.id)
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (username == null) {
-			if (other.username != null)
-				return false;
-		} else if (!username.equals(other.username))
-			return false;
-		return true;
+		return Objects.equals(accesslevel, other.accesslevel) && Objects.equals(account, other.account)
+				&& id == other.id && Objects.equals(password, other.password) && Objects.equals(person, other.person)
+				&& Objects.equals(username, other.username);
 	}
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", password=" + password + ", id=" + id + "]";
+		return "User [username=" + username + ", password=" + password + ", id=" + id + ", accesslevel=" + accesslevel
+				+ ", person=" + person + ", account=" + account + "]";
 	}
+	
+	
+
 	
 	
 }

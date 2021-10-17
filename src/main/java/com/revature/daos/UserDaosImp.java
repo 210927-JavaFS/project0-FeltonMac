@@ -98,14 +98,13 @@ public class UserDaosImp implements UserDao {
 					// if (rs.next())
 					String ANfromresults = result.getString("account_number");
 					if (user.getAccount() == null) {
-						BankAccount account = accountdao.findAccount(ANfromresults);/// does this need to be the
-																					/// implimented dao
+						BankAccount account = accountdao.findAccount(ANfromresults);
+																					
 						user.setAccount(account);
 					}
 				}
 			
 				System.out.println("User returning");
-				System.out.println(user.toString());
 				return user;
 				
 			}catch (SQLException e) {
@@ -117,19 +116,29 @@ public class UserDaosImp implements UserDao {
 	@Override
 	public boolean addUser(User newUser) { 
 			try(Connection conn = ConnectionUtil.getConnection()){
-				
-				String sql = "INSERT INTO users(user_name ,user_password, access_level, account_number, people_id) \r\n"
-						+ "VALUES (?,?,?,?);";
+				String sql = "INSERT INTO accounts_table(account_number,balance) \n"
+						+ "VALUES (?,?);";
 				
 				int count = 0;
 				
 				PreparedStatement statement = conn.prepareStatement(sql);
-				
-				statement.setString(++count, newUser.getUsername());
-				statement.setString(++count, newUser.getPassword());
-				statement.setString(++count, newUser.getAccesslevel());
 				statement.setString(++count, newUser.getAccount().getAccountnumber());
+				statement.setDouble(++count, newUser.getAccount().getBalance());
 				statement.execute();
+				
+				String sql2 = "INSERT INTO users(user_name ,user_password, access_level,account_number) \n"
+						+ "VALUES (?,?,?,?);";
+
+				count = 0;
+				
+				PreparedStatement statement2 = conn.prepareStatement(sql2);
+				
+				statement2.setString(++count, newUser.getUsername());
+				statement2.setString(++count, newUser.getPassword());
+				statement2.setString(++count, newUser.getAccesslevel());
+				statement2.setString(++count, newUser.getAccount().getAccountnumber());
+
+				statement2.execute();
 				
 				return true;
 
@@ -143,7 +152,7 @@ public class UserDaosImp implements UserDao {
 		// TODO Auto-generated method stub		
 		try(Connection conn = ConnectionUtil.getConnection()){
 			
-		String sql = "UPDATE users AS u set u.password = ? WHERE u.username = ?";
+		String sql = "UPDATE users AS u set u.password = ? WHERE u.user_name = ?";
 		
 		int count = 0;
 		

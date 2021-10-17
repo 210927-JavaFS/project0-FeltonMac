@@ -2,11 +2,14 @@ package com.revature.controllers;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.models.User;
 import com.revature.services.UserService;
 
 public class MenuController {
-
+private static Logger log = LoggerFactory.getLogger(MenuController.class);
 	static Scanner scan = new Scanner(System.in);
 	User user = new User();
 	static UserController userController = new UserController();
@@ -14,7 +17,7 @@ public class MenuController {
 	static UserService userService = new UserService();
 
 	public void login(){
-
+		log.info("login attempt");
 		System.out.println("      Enter Username ");
 		System.out.println("*-------------------------*");
 		System.out.println("*-------------------------*");
@@ -31,24 +34,35 @@ public class MenuController {
 		if (user != null) {
 			welcomeMenu(user);
 		}
-			System.out.println("       login failed");
+			System.out.println("          login");
 			System.out.println("*-------------------------*");
 			System.out.println("*-------------------------*");
 			System.out.println("*-------------------------*");
 			System.out.println("       create user?");
+			System.out.println(":Select \"y\" for yes");
+			System.out.println(":Select \"n\" for no");
+			System.out.println("*-------------------------*");
+			System.out.println("*-------------------------*");
+
 			String input = scan.nextLine();
 			
 			switch(input.toLowerCase()) {
 			case "y":
 			welcomeMenu(userController.newUserMenu());
+			login();
 			break;
 			case "n":
-			break;
+				System.out.println("*-------------------------*");
+				System.out.println("*-------------------------*");
+				System.out.println("*-------------------------*");
+				System.out.println("*------ending app---------*");
+				break;
 			}
-			login();
+		
 		}
 
 	public void welcomeMenu(User user) {
+		log.info(user.getUsername()+" this user has logged in");
 		String response;
 		do {
 			System.out.println("     Bank information");

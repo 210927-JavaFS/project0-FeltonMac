@@ -9,8 +9,9 @@ public interface BankAccountDao {
 //boolean deleteAccount();
 	public List<BankAccount> findAll();
 	public BankAccount findAccount(String accountnumberstring);
-	public boolean addAcount();
+	public boolean addAcount(String newadd);
 	public BankAccount getAccount();
 	public double getAccountBalance(String accountnumberstring);
+	public boolean setBalance(String accountnumber, double balance);
 	
 }

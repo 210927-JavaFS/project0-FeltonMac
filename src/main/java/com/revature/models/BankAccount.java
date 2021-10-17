@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import java.util.Objects;
+
 public class BankAccount {
 	private String accountnumber;
 	private double balance;
@@ -25,6 +27,23 @@ public class BankAccount {
 	}
 	public void setBalance(double balance) {
 		this.balance = balance;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(accountnumber, balance);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BankAccount other = (BankAccount) obj;
+		return Objects.equals(accountnumber, other.accountnumber)
+				&& Double.doubleToLongBits(balance) == Double.doubleToLongBits(other.balance);
 	}
 	@Override
 	public String toString() {

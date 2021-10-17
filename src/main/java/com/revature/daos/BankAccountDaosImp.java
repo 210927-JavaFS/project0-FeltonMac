@@ -6,21 +6,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.models.BankAccount;
 import com.revature.utilities.ConnectionUtil;
 
 public class BankAccountDaosImp implements BankAccountDao {
-
+	private static Logger log = LoggerFactory.getLogger(BankAccountDao.class);
 	@Override
 	public List<BankAccount> findAll() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public BankAccount getAccount() {
 		
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -60,10 +61,40 @@ public class BankAccountDaosImp implements BankAccountDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	public boolean setBalance(String accountstring, double newamount ) {
+		System.out.println("SetBalanceStart");
+		try(Connection conn = ConnectionUtil.getConnection()){
+			String sql = " UPDATE accounts_table SET balance = ?"
+					+"WHERE account_number = ?";
+			
+		PreparedStatement statement = conn.prepareStatement(sql);
+		int count=0;
+			statement.setDouble(++count, newamount);
+			statement.setString(++count, accountstring );
+			statement.execute();
+			System.out.println(" statement executed");
+			System.out.println(newamount + ": set ");
+			return true;
+	} catch (SQLException e) {
+		e.printStackTrace();
+		System.out.println(" failed to set ");
+	}
+		return false;// TODO Auto-generated method stub
+	}
 	@Override
-	public boolean addAcount() {
-		// TODO Auto-generated method stub
+	public boolean addAcount(String newadd) {
+		try (Connection conn = ConnectionUtil.getConnection()){
+			String sql =" INSERT INTO accounts_table (account_number)"
+					+ "VALUES (?);";
+			PreparedStatement state = conn.prepareStatement(sql);
+			state.setString(1, newadd);
+			state.execute();
+			System.out.println("add successful");
+			return true;
+		}catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println(" failed to add");
+		}
 		return false;
 	}
 
