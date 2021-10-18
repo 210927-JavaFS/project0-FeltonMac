@@ -10,6 +10,7 @@ public interface UserDao {
 	public User findUser(String u);
 	public boolean addUser(User newUser);
 	public boolean changePassword(User u,String newPass);
+	public boolean loginCreateUser(User newUser);
 	//public void changeUsername(String newUserName;)
 
 }

@@ -5,6 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.daos.BankAccountDao;
 import com.revature.daos.BankAccountDaosImp;
 import com.revature.daos.TransactionDao;
@@ -22,10 +25,15 @@ public class BankAccountService {
 	UserDao userDao = new UserDaosImp();
 	User user = new User();
 	BankAccount account = new BankAccount();
+	private static Logger log =  LoggerFactory.getLogger(BankAccountService.class);
 
-	public List<BankAccount> findAllAccounts(){
-		return accountdao.findAll();
-	}
+	public void findAllAccounts(){/////////////this is not here 
+			System.out.println("all accounts:");
+			List<BankAccount> list = accountdao.findAll();
+			for(BankAccount account:list) {
+				System.out.println(account);
+			}
+		}
 	
 	public  BankAccount findAccount(String accountnumberstring){
 		BankAccount accountreturned = accountdao.findAccount(accountnumberstring);
@@ -35,22 +43,23 @@ public class BankAccountService {
 
 	
 	public boolean addAccount(String newadd) {
+		log.info("account made please check data base");
 	 return accountdao.addAcount(newadd);
 	}
 	 
-	public void withdraw(String accountstring,Double withdrawamount) {
-		 transactiondao.withdraw(accountstring, withdrawamount);
-	}
-	public void deposit(String accountstring,Double depositeamount) {
-		transactiondao.deposit(accountstring, depositeamount);
-	}
-	public void transfer(String addaccountstring,String subaccountstring,Double transferamount) {
-		transactiondao.transfer(addaccountstring, subaccountstring, transferamount);
-	}
+
 	public void showbalance(String accountstring) {
 		transactiondao.showbalance(accountstring);
 	}
-	
+//	public void withdraw(String accountstring,Double withdrawamount) {
+//	 transactiondao.withdraw(accountstring, withdrawamount);
+//}
+//public void deposit(String accountstring,Double depositeamount) {
+//	transactiondao.deposit(accountstring, depositeamount);
+//}
+//public void transfer(String addaccountstring,String subaccountstring,Double transferamount) {
+//	transactiondao.transfer(addaccountstring, subaccountstring, transferamount);
+//}
 	
 	
 	///////////////////////////////////////////////////////////////////////////////////////////////changes
@@ -67,7 +76,7 @@ public class BankAccountService {
 			System.out.println("withdraw set");
 			return true;
 		}
-		System.out.println("no with draw made try again");
+		System.out.println("no withdraw made try again");
 		return false;
 	}
 	public boolean depositpullin(String accountstring, Double depositeamount) {
@@ -81,6 +90,7 @@ public class BankAccountService {
 			return false;
 	}
 	public boolean transerferpullin(String wnumber,String dnumber, Double amount) {
+		log.warn("transfer input manually please check database");
 		withdrawpullin(wnumber,amount);
 		depositpullin(dnumber,amount);
 		

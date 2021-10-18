@@ -17,7 +17,7 @@ private static Logger log = LoggerFactory.getLogger(MenuController.class);
 	static UserService userService = new UserService();
 
 	public void login(){
-		log.info("login attempt");
+		log.info("login attempt: " + user.getUsername());
 		System.out.println("      Enter Username ");
 		System.out.println("*-------------------------*");
 		System.out.println("*-------------------------*");

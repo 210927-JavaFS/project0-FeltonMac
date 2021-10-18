@@ -147,12 +147,54 @@ public class UserDaosImp implements UserDao {
 			}
 			return false;
 	}
+	
+	public boolean loginCreateUser(User newUser) { 
+		try(Connection conn = ConnectionUtil.getConnection()){
+			//String sql = "INSERT INTO accounts_table(account_number,balance) \n"
+				//	+ "VALUES (?,?);";
+//			
+//			int count = 0;
+//			
+//			PreparedStatement statement = conn.prepareStatement(sql);
+//			statement.setString(++count, newUser.getAccount().getAccountnumber());
+//			statement.setDouble(++count, newUser.getAccount().getBalance());
+//			statement.execute();
+//			
+			String sql2 = "INSERT INTO users(user_name ,user_password, access_level) \n"
+					+ "VALUES (?,?,?);";
+
+			int count = 0;
+			
+			PreparedStatement statement2 = conn.prepareStatement(sql2);
+			
+			statement2.setString(++count, (newUser.getUsername())+"99");
+			statement2.setString(++count, (newUser.getPassword())+"99");
+			statement2.setString(++count, "one");
+
+			statement2.execute();
+			System.out.println(" new user added add account later ");
+			return true;
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println(" new temp user add fail try again "
+				+"please check database ");
+
+		return false;
+}
+	
+	
+	
+	
+	
+	
 	@Override   // would have to check if this user exists or send all the null values with it test
 	public boolean changePassword(User u ,String newPass) {
 		// TODO Auto-generated method stub		
 		try(Connection conn = ConnectionUtil.getConnection()){
 			
-		String sql = "UPDATE users AS u set u.password = ? WHERE u.user_name = ?";
+		String sql = "UPDATE users SET password = ? WHERE user_name = ?";
 		
 		int count = 0;
 		

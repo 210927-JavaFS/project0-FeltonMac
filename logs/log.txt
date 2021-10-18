@@ -29,3 +29,38 @@
 05:06:22.263 [] [main] INFO  c.r.controllers.MenuController - seconduser this user has logged in
 05:08:41.338 [] [main] INFO  c.r.controllers.MenuController - login attempt
 05:08:57.347 [] [main] INFO  c.r.controllers.MenuController - seconduser this user has logged in
+17:55:42.411 [] [main] INFO  c.r.controllers.MenuController - login attempt
+17:56:05.393 [] [main] INFO  c.r.controllers.MenuController - firstuser this user has logged in
+18:07:52.052 [] [main] INFO  c.r.controllers.MenuController - login attempt
+18:08:13.185 [] [main] INFO  c.r.controllers.MenuController - seconduser this user has logged in
+19:31:02.619 [] [main] INFO  c.r.controllers.MenuController - you this user has logged in
+19:33:03.996 [] [main] INFO  c.r.controllers.MenuController - login attempt
+23:43:03.993 [] [main] INFO  c.r.controllers.MenuController - login attempt: null
+23:44:39.312 [] [main] INFO  c.r.controllers.MenuController - login attempt: null
+23:44:59.164 [] [main] INFO  c.r.controllers.MenuController - try this user has logged in
+23:54:55.835 [] [main] INFO  c.r.controllers.MenuController - login attempt: null
+00:57:17.554 [] [main] INFO  BankAccountServiceTest - set
+00:57:17.572 [] [main] INFO  BankAccountServiceTest - In setInts
+00:57:17.574 [] [main] INFO  BankAccountServiceTest - test withdraw
+00:57:17.579 [] [main] INFO  BankAccountServiceTest -  clearResult
+00:57:17.592 [] [main] INFO  BankAccountServiceTest - In setInts
+00:57:17.593 [] [main] INFO  BankAccountServiceTest - test withdraw
+00:57:17.593 [] [main] INFO  BankAccountServiceTest -  clearResult
+00:57:17.595 [] [main] INFO  BankAccountServiceTest - In setInts
+00:57:17.596 [] [main] INFO  BankAccountServiceTest - test withdraw
+00:57:17.596 [] [main] INFO  BankAccountServiceTest -  clearResult
+00:57:17.600 [] [main] INFO  BankAccountServiceTest - = clear user
+00:59:42.835 [] [main] INFO  BankAccountServiceTest - set
+00:59:42.854 [] [main] INFO  BankAccountServiceTest - In setInts
+00:59:42.856 [] [main] INFO  BankAccountServiceTest - test withdraw
+00:59:42.862 [] [main] INFO  BankAccountServiceTest -  clearResult
+00:59:42.875 [] [main] INFO  BankAccountServiceTest - In setInts
+00:59:42.876 [] [main] INFO  BankAccountServiceTest - test withdraw
+00:59:42.876 [] [main] INFO  BankAccountServiceTest -  clearResult
+00:59:42.880 [] [main] INFO  BankAccountServiceTest - In setInts
+00:59:42.880 [] [main] INFO  BankAccountServiceTest - test withdraw
+00:59:42.880 [] [main] INFO  BankAccountServiceTest -  clearResult
+00:59:42.883 [] [main] INFO  BankAccountServiceTest - In setInts
+00:59:42.883 [] [main] INFO  BankAccountServiceTest - test withdraw
+00:59:42.884 [] [main] INFO  BankAccountServiceTest -  clearResult
+00:59:42.888 [] [main] INFO  BankAccountServiceTest - = clear user

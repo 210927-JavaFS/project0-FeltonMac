@@ -30,6 +30,9 @@ public class UserService {
 	public boolean addUser(User newUser) {
 	 return userDao.addUser(newUser);
 	}
+	public boolean addCreatedLoginUser(User newuser) {
+		return userDao.loginCreateUser(newuser);
+	}
 	
 	
 	public User login(String username, String password) {

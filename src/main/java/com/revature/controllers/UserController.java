@@ -112,6 +112,7 @@ public class UserController {
 		newUser.setUsername(username);
 		newUser.setPassword(password);
 		newUser.setAccesslevel("one");
+		userService.addCreatedLoginUser(newUser);
 		return newUser;
 	}
 
