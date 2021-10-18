@@ -83,6 +83,7 @@ public class BankAccountDaosImp implements BankAccountDao {
 	}
 	@Override
 	public boolean addAcount(String newadd) {
+		log.info("new account add attempt");
 		try (Connection conn = ConnectionUtil.getConnection()){
 			String sql =" INSERT INTO accounts_table (account_number)"
 					+ "VALUES (?);";

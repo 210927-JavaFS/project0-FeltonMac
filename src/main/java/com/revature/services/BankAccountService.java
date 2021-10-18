@@ -31,7 +31,7 @@ public class BankAccountService {
 			System.out.println("all accounts:");
 			List<BankAccount> list = accountdao.findAll();
 			for(BankAccount account:list) {
-				System.out.println(account);
+				System.out.println(account.toString());
 			}
 		}
 	
@@ -94,7 +94,7 @@ public class BankAccountService {
 		withdrawpullin(wnumber,amount);
 		depositpullin(dnumber,amount);
 		
-		System.out.println(" no transaction completed completed");
+		System.out.println("  transaction  completed");
 		return false;
 	}
 	

@@ -64,3 +64,70 @@
 00:59:42.883 [] [main] INFO  BankAccountServiceTest - test withdraw
 00:59:42.884 [] [main] INFO  BankAccountServiceTest -  clearResult
 00:59:42.888 [] [main] INFO  BankAccountServiceTest - = clear user
+16:05:37.523 [] [main] INFO  BankAccountServiceTest - set
+16:05:37.555 [] [main] INFO  BankAccountServiceTest - In setInts
+16:05:37.558 [] [main] INFO  BankAccountServiceTest - test deposit
+16:05:37.562 [] [main] INFO  BankAccountServiceTest -  clearResult
+16:05:37.571 [] [main] INFO  BankAccountServiceTest - In setInts
+16:05:37.572 [] [main] INFO  BankAccountServiceTest - test withdraw
+16:05:37.572 [] [main] INFO  BankAccountServiceTest -  clearResult
+16:05:37.576 [] [main] INFO  BankAccountServiceTest - In setInts
+16:05:37.576 [] [main] INFO  BankAccountServiceTest - test withdraw
+16:05:37.577 [] [main] INFO  BankAccountServiceTest -  clearResult
+16:05:37.580 [] [main] INFO  BankAccountServiceTest - In setInts
+16:05:37.581 [] [main] INFO  BankAccountServiceTest - test withdraw
+16:05:37.581 [] [main] INFO  BankAccountServiceTest -  clearResult
+16:05:37.584 [] [main] INFO  BankAccountServiceTest - = clear user
+16:05:52.623 [] [main] INFO  BankAccountServiceTest - set
+16:05:52.635 [] [main] INFO  BankAccountServiceTest - In setInts
+16:05:52.638 [] [main] INFO  BankAccountServiceTest - test deposit
+16:05:52.642 [] [main] INFO  BankAccountServiceTest -  clearResult
+16:05:52.651 [] [main] INFO  BankAccountServiceTest - In setInts
+16:05:52.651 [] [main] INFO  BankAccountServiceTest - test withdraw
+16:05:52.652 [] [main] INFO  BankAccountServiceTest -  clearResult
+16:05:52.654 [] [main] INFO  BankAccountServiceTest - In setInts
+16:05:52.654 [] [main] INFO  BankAccountServiceTest - test withdraw
+16:05:52.654 [] [main] INFO  BankAccountServiceTest -  clearResult
+16:05:52.657 [] [main] INFO  BankAccountServiceTest - In setInts
+16:05:52.658 [] [main] INFO  BankAccountServiceTest - test withdraw
+16:05:52.658 [] [main] INFO  BankAccountServiceTest -  clearResult
+16:05:52.661 [] [main] INFO  BankAccountServiceTest - = clear user
+16:06:53.166 [] [main] INFO  c.r.controllers.MenuController - login attempt: null
+16:12:22.753 [] [main] INFO  c.r.controllers.MenuController - first this user has logged in
+16:14:48.925 [] [main] INFO  c.r.controllers.MenuController - login attempt: null
+16:15:13.366 [] [main] INFO  c.r.controllers.MenuController - second this user has logged in
+16:55:43.871 [] [main] INFO  c.r.controllers.MenuController - login attempt: null
+16:55:52.663 [] [main] INFO  c.r.controllers.MenuController - second this user has logged in
+16:58:19.826 [] [main] INFO  c.r.controllers.MenuController - login attempt: null
+16:58:33.886 [] [main] INFO  c.r.controllers.MenuController - login attempt: null
+16:58:46.638 [] [main] INFO  c.r.controllers.MenuController - second this user has logged in
+17:00:17.650 [] [main] INFO  c.r.controllers.MenuController - login attempt: null
+17:00:31.113 [] [main] INFO  c.r.controllers.MenuController - second this user has logged in
+17:01:46.020 [] [main] INFO  c.r.controllers.MenuController - login attempt: null
+17:02:07.184 [] [main] INFO  c.r.controllers.MenuController - second this user has logged in
+17:03:15.608 [] [main] INFO  c.r.services.BankAccountService - account made please check data base
+17:10:57.676 [] [main] INFO  c.r.controllers.MenuController - login attempt: null
+17:11:13.127 [] [main] INFO  c.r.controllers.MenuController - third this user has logged in
+17:12:18.213 [] [main] WARN  c.r.services.BankAccountService - transfer input manually please check database
+17:21:30.636 [] [main] INFO  c.r.controllers.MenuController - login attempt: null
+17:21:50.032 [] [main] INFO  c.r.controllers.MenuController - first this user has logged in
+17:24:06.233 [] [main] INFO  c.r.controllers.MenuController - newperson this user has logged in
+17:27:39.783 [] [main] INFO  c.r.controllers.MenuController - login attempt: null
+17:27:50.863 [] [main] INFO  c.r.controllers.MenuController - second this user has logged in
+17:28:24.257 [] [main] INFO  c.r.services.BankAccountService - account made please check data base
+17:28:24.257 [] [main] INFO  com.revature.daos.BankAccountDao - new account add attempt
+17:31:05.827 [] [main] WARN  c.r.services.BankAccountService - transfer input manually please check database
+17:33:17.171 [] [main] INFO  BankAccountServiceTest - set
+17:33:17.194 [] [main] INFO  BankAccountServiceTest - In setInts
+17:33:17.197 [] [main] INFO  BankAccountServiceTest - test deposit
+17:33:17.203 [] [main] INFO  BankAccountServiceTest -  clearResult
+17:33:17.218 [] [main] INFO  BankAccountServiceTest - In setInts
+17:33:17.218 [] [main] INFO  BankAccountServiceTest - test withdraw
+17:33:17.219 [] [main] INFO  BankAccountServiceTest -  clearResult
+17:33:17.224 [] [main] INFO  BankAccountServiceTest - In setInts
+17:33:17.224 [] [main] INFO  BankAccountServiceTest - test withdraw
+17:33:17.226 [] [main] INFO  BankAccountServiceTest -  clearResult
+17:33:17.230 [] [main] INFO  BankAccountServiceTest - In setInts
+17:33:17.230 [] [main] INFO  BankAccountServiceTest - test withdraw
+17:33:17.231 [] [main] INFO  BankAccountServiceTest -  clearResult
+17:33:17.235 [] [main] INFO  BankAccountServiceTest - = clear user
